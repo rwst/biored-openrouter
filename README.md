@@ -264,7 +264,7 @@ The system handles markdown-wrapped JSON responses automatically. If you still e
 
 ## License
 
-[Add your license here]
+CC0
 
 ## Citation
 

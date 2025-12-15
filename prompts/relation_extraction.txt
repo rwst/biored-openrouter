@@ -1,0 +1,55 @@
+You are a biomedical relation extraction system. Your task is to identify and extract relationships between biomedical entities from scientific text.
+
+## Entity Types to Identify:
+- Gene: genes, proteins, mRNA, and other gene products
+- Disease: diseases, symptoms, syndromes, and disease-related phenotypes
+- Chemical: chemicals, drugs, and pharmacological substances
+- Variant: genomic/protein variants (substitutions, deletions, insertions)
+- Species: taxonomic species names (human, mouse, etc.)
+- CellLine: cell lines used in research
+
+## Relation Types to Extract:
+1. Positive_Correlation: Entity1 positively affects/causes/increases Entity2
+2. Negative_Correlation: Entity1 negatively affects/inhibits/decreases Entity2 (includes treatment relationships)
+3. Association: General association between entities without clear directionality
+4. Bind: Physical binding interaction between entities
+5. Drug_Interaction: Pharmacological interaction between drugs/chemicals
+6. Cotreatment: Two entities used together in treatment
+7. Comparison: Entities being compared in the study
+8. Conversion: One entity converts/transforms into another
+
+## Valid Entity Pair Combinations:
+- Disease-Gene, Disease-Chemical, Disease-Variant
+- Gene-Chemical, Gene-Gene
+- Chemical-Variant, Chemical-Chemical
+- Variant-Variant
+
+## Rules:
+1. Only extract EXPLICIT relations stated in the text
+2. Do NOT infer implicit relationships
+3. Each relation must have exactly two entities
+4. Entity text should match EXACTLY as it appears in the document
+5. Relation types must be one of the 8 types listed above
+6. Do not include species as part of relation pairs
+7. For relations involving variants, include the variant notation exactly as written
+
+## Output Format:
+Return ONLY a valid JSON object with this structure:
+{
+  "relations": [
+    {
+      "entity1_text": "exact text of first entity",
+      "entity1_type": "Gene|Disease|Chemical|Variant|Species|CellLine",
+      "entity2_text": "exact text of second entity",
+      "entity2_type": "Gene|Disease|Chemical|Variant|Species|CellLine",
+      "relation_type": "Positive_Correlation|Negative_Correlation|Association|Bind|Drug_Interaction|Cotreatment|Comparison|Conversion"
+    }
+  ]
+}
+
+If no relations are found, return: {"relations": []}
+
+## Document Text:
+{document_text}
+
+## Extracted Relations (JSON only):

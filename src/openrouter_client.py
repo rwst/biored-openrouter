@@ -4,6 +4,7 @@ import os
 import json
 import requests
 from dataclasses import dataclass
+from datetime import datetime
 from typing import List, Optional
 from pathlib import Path
 
@@ -145,9 +146,14 @@ class OpenRouterClient:
             )
 
         except (json.JSONDecodeError, KeyError) as e:
+            # Write failed response to file for debugging
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            error_file = Path(f"error_response_{timestamp}.txt")
+            error_file.write_text(content)
+
             return ExtractionResult(
                 success=False,
                 relations=[],
                 raw_response=content,
-                error_message=f"Failed to parse response: {e}"
+                error_message=f"Failed to parse response: {e}. Raw response saved to {error_file}"
             )

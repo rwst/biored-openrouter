@@ -4,6 +4,7 @@ import pytest
 import os
 import json
 import requests
+from pathlib import Path
 from unittest.mock import patch, MagicMock
 from src.openrouter_client import OpenRouterClient, ExtractionResult, ExtractedRelation
 
@@ -301,3 +302,43 @@ class TestOpenRouterClient:
         call_kwargs = mock_post.call_args[1]
         prompt_sent = call_kwargs["json"]["messages"][0]["content"]
         assert test_text in prompt_sent
+
+    @patch('requests.post')
+    def test_error_response_saved_to_file(self, mock_post, client):
+        """Verify failed JSON parsing writes response to error file."""
+        invalid_json = '{"relations": [{"unterminated": "string'
+        mock_response = MagicMock()
+        mock_response.json.return_value = {
+            "choices": [{
+                "message": {"content": invalid_json}
+            }]
+        }
+        mock_post.return_value = mock_response
+
+        result = client.extract_relations("Sample text")
+
+        # Should fail
+        assert result.success == False
+        assert "Failed to parse response" in result.error_message
+
+        # Error message should include filename
+        assert "error_response_" in result.error_message
+        assert ".txt" in result.error_message
+        assert "Raw response saved to" in result.error_message
+
+        # Extract filename from error message - handle both formats
+        import re
+        # Pattern matches both "error_response_20231215_123456.txt" and full paths
+        match = re.search(r'(error_response_\d{8}_\d{6}\.txt)', result.error_message)
+        assert match is not None
+        filename = match.group(1)
+
+        # Verify file was created
+        error_file = Path(filename)
+        assert error_file.exists()
+
+        # Verify file contents
+        assert error_file.read_text() == invalid_json
+
+        # Cleanup
+        error_file.unlink()

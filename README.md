@@ -271,7 +271,7 @@ The system handles markdown-wrapped JSON responses automatically. If you still e
 If you use this system in your research, please cite the BioRED paper:
 
 ```
-[Add BioRED citation]
+Luo, Ling, et al. "BioRED: a rich biomedical relation extraction dataset." Briefings in Bioinformatics 23.5 (2022): bbac282. PMCID: PMC9487702  PMID: 35849818
 ```
 
 ## Contributing

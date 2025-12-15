@@ -1,0 +1,26 @@
+I want you to act as an expert project manager. Based on the details below, draft a comprehensive plan to implement software.
+
+Important Instruction:
+You likely do not have all the specific context required for a perfect plan. Where details are missing, make a reasonable standard assumption to keep the plan flowing, but mark it mentally.
+Output Format:
+The Plan: The detailed step-by-step guide.
+Clarification Questions: At the very end, create a section titled '## Areas Requiring Clarification.' List every specific variable, resource, or preference I need to define to move this plan from 'generic' to 'tailored.' Explain why each answer would change the plan."
+
+The attached article describes the BioRED benchmark, with details in the second attachment and a
+sample json of 2 "document" datasets with their "passages" and resp. annotated entities and relations.
+Make a detailed plan in multiple phases for implementation of a multiple-file python script that 
+reads a json (given as argparse option, adhering to the same schema as the attached sample) into 
+memory, and for each of the document-passages that has an annotated relation, send a request to
+an openrouter model, attaching the passage, with a prompt that asks for a structured answer in json
+containing all relations the model can extract. The structure should give related entities simply
+as text, and not try to find any biodata ID. Write a suitable prompt, listing all rules necessary
+for the task. The openrouter model name is given as argparse option. Use the openrouter API key from
+the environment. Communicate with openrouter synchronously, waiting for the response. Every answer
+will be compared to the annotated relations using text for comparison of entities. Ignore the novelty
+question. Be as statistically faithful to the attached article as possible (find out how they counted
+success (per document/relation?). using the document id and relation ids, write the results into
+a simple CSV file database named results.csv, suitable for import in a spreadsheet. this file
+should be updated with every run and rows overwritten if they have the same model/document id.
+for each of the above phases (read data, send query, get results from answer, update csv) write
+a test, so that each phase can be implemented and tested sequentially. 
+

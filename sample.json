@@ -1,0 +1,1046 @@
+{
+ "source": "PubTator",
+ "date": "2021-11-30",
+ "key": "BioC.key",
+ "documents": [
+  {
+   "id": "15485686",
+   "passages": [
+    {
+     "offset": 0,
+     "text": "A novel SCN5A mutation manifests as a malignant form of long QT syndrome with perinatal onset of tachycardia/bradycardia.",
+     "annotations": [
+      {
+       "id": "0",
+       "infons": {
+        "identifier": "6331",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "SCN5A",
+       "locations": [
+        {
+         "offset": 8,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "1",
+       "infons": {
+        "identifier": "D008133",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "long QT syndrome",
+       "locations": [
+        {
+         "offset": 56,
+         "length": 16
+        }
+       ]
+      },
+      {
+       "id": "2",
+       "infons": {
+        "identifier": "D013610",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "tachycardia",
+       "locations": [
+        {
+         "offset": 97,
+         "length": 11
+        }
+       ]
+      },
+      {
+       "id": "3",
+       "infons": {
+        "identifier": "D001919",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "bradycardia",
+       "locations": [
+        {
+         "offset": 109,
+         "length": 11
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "offset": 122,
+     "text": "OBJECTIVE: Congenital long QT syndrome (LQTS) with in utero onset of the rhythm disturbances is associated with a poor prognosis. In this study we investigated a newborn patient with fetal bradycardia, 2:1 atrioventricular block and ventricular tachycardia soon after birth. METHODS: Mutational analysis and DNA sequencing were conducted in a newborn. The 2:1 atrioventricular block improved to 1:1 conduction only after intravenous lidocaine infusion or a high dose of mexiletine, which also controlled the ventricular tachycardia. RESULTS: A novel, spontaneous LQTS-3 mutation was identified in the transmembrane segment 6 of domain IV of the Na(v)1.5 cardiac sodium channel, with a G-->A substitution at codon 1763, which changed a valine (GTG) to a methionine (ATG). The proband was heterozygous but the mutation was absent in the parents and the sister. Expression of this mutant channel in tsA201 mammalian cells by site-directed mutagenesis revealed a persistent tetrodotoxin-sensitive but lidocaine-resistant current that was associated with a positive shift of the steady-state inactivation curve, steeper activation curve and faster recovery from inactivation. We also found a similar electrophysiological profile for the neighboring V1764M mutant. But, the other neighboring I1762A mutant had no persistent current and was still associated with a positive shift of inactivation. CONCLUSIONS: These findings suggest that the Na(v)1.5/V1763M channel dysfunction and possible neighboring mutants contribute to a persistent inward current due to altered inactivation kinetics and clinically congenital LQTS with perinatal onset of arrhythmias that responded to lidocaine and mexiletine.",
+     "annotations": [
+      {
+       "id": "4",
+       "infons": {
+        "identifier": "D008133",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "long QT syndrome",
+       "locations": [
+        {
+         "offset": 144,
+         "length": 16
+        }
+       ]
+      },
+      {
+       "id": "5",
+       "infons": {
+        "identifier": "D008133",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "LQTS",
+       "locations": [
+        {
+         "offset": 162,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "6",
+       "infons": {
+        "identifier": "9606",
+        "type": "OrganismTaxon"
+       },
+       "text": "patient",
+       "locations": [
+        {
+         "offset": 292,
+         "length": 7
+        }
+       ]
+      },
+      {
+       "id": "7",
+       "infons": {
+        "identifier": "D001919",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "bradycardia",
+       "locations": [
+        {
+         "offset": 311,
+         "length": 11
+        }
+       ]
+      },
+      {
+       "id": "8",
+       "infons": {
+        "identifier": "D054537",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "atrioventricular block",
+       "locations": [
+        {
+         "offset": 328,
+         "length": 22
+        }
+       ]
+      },
+      {
+       "id": "9",
+       "infons": {
+        "identifier": "D017180",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "ventricular tachycardia",
+       "locations": [
+        {
+         "offset": 355,
+         "length": 23
+        }
+       ]
+      },
+      {
+       "id": "10",
+       "infons": {
+        "identifier": "D054537",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "atrioventricular block",
+       "locations": [
+        {
+         "offset": 482,
+         "length": 22
+        }
+       ]
+      },
+      {
+       "id": "11",
+       "infons": {
+        "identifier": "D008012",
+        "type": "ChemicalEntity"
+       },
+       "text": "lidocaine",
+       "locations": [
+        {
+         "offset": 555,
+         "length": 9
+        }
+       ]
+      },
+      {
+       "id": "12",
+       "infons": {
+        "identifier": "D008801",
+        "type": "ChemicalEntity"
+       },
+       "text": "mexiletine",
+       "locations": [
+        {
+         "offset": 592,
+         "length": 10
+        }
+       ]
+      },
+      {
+       "id": "13",
+       "infons": {
+        "identifier": "D017180",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "ventricular tachycardia",
+       "locations": [
+        {
+         "offset": 630,
+         "length": 23
+        }
+       ]
+      },
+      {
+       "id": "14",
+       "infons": {
+        "identifier": "D008133",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "LQTS",
+       "locations": [
+        {
+         "offset": 685,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "15",
+       "infons": {
+        "identifier": "6331",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "Na(v)1.5",
+       "locations": [
+        {
+         "offset": 767,
+         "length": 8
+        }
+       ]
+      },
+      {
+       "id": "16",
+       "infons": {
+        "identifier": "D012964",
+        "type": "ChemicalEntity"
+       },
+       "text": "sodium",
+       "locations": [
+        {
+         "offset": 784,
+         "length": 6
+        }
+       ]
+      },
+      {
+       "id": "17",
+       "infons": {
+        "identifier": "c|SUB|G|CODON1763|A",
+        "type": "SequenceVariant"
+       },
+       "text": "G-->A substitution at codon 1763",
+       "locations": [
+        {
+         "offset": 807,
+         "length": 32
+        }
+       ]
+      },
+      {
+       "id": "18",
+       "infons": {
+        "identifier": "p|SUB|V||M",
+        "type": "SequenceVariant"
+       },
+       "text": "valine (GTG) to a methionine (ATG)",
+       "locations": [
+        {
+         "offset": 857,
+         "length": 34
+        }
+       ]
+      },
+      {
+       "id": "19",
+       "infons": {
+        "identifier": "CVCL_2737",
+        "type": "CellLine"
+       },
+       "text": "tsA201",
+       "locations": [
+        {
+         "offset": 1018,
+         "length": 6
+        }
+       ]
+      },
+      {
+       "id": "20",
+       "infons": {
+        "identifier": "D013779",
+        "type": "ChemicalEntity"
+       },
+       "text": "tetrodotoxin",
+       "locations": [
+        {
+         "offset": 1092,
+         "length": 12
+        }
+       ]
+      },
+      {
+       "id": "21",
+       "infons": {
+        "identifier": "D008012",
+        "type": "ChemicalEntity"
+       },
+       "text": "lidocaine",
+       "locations": [
+        {
+         "offset": 1119,
+         "length": 9
+        }
+       ]
+      },
+      {
+       "id": "22",
+       "infons": {
+        "identifier": "p|SUB|V|1764|M",
+        "type": "SequenceVariant"
+       },
+       "text": "V1764M",
+       "locations": [
+        {
+         "offset": 1366,
+         "length": 6
+        }
+       ]
+      },
+      {
+       "id": "23",
+       "infons": {
+        "identifier": "p|SUB|I|1762|A",
+        "type": "SequenceVariant"
+       },
+       "text": "I1762A",
+       "locations": [
+        {
+         "offset": 1408,
+         "length": 6
+        }
+       ]
+      },
+      {
+       "id": "24",
+       "infons": {
+        "identifier": "6331",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "Na(v)1.5",
+       "locations": [
+        {
+         "offset": 1557,
+         "length": 8
+        }
+       ]
+      },
+      {
+       "id": "25",
+       "infons": {
+        "identifier": "p|SUB|V|1763|M",
+        "type": "SequenceVariant"
+       },
+       "text": "V1763M",
+       "locations": [
+        {
+         "offset": 1566,
+         "length": 6
+        }
+       ]
+      },
+      {
+       "id": "26",
+       "infons": {
+        "identifier": "D008133",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "LQTS",
+       "locations": [
+        {
+         "offset": 1731,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "27",
+       "infons": {
+        "identifier": "D001145",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "arrhythmias",
+       "locations": [
+        {
+         "offset": 1760,
+         "length": 11
+        }
+       ]
+      },
+      {
+       "id": "28",
+       "infons": {
+        "identifier": "D008012",
+        "type": "ChemicalEntity"
+       },
+       "text": "lidocaine",
+       "locations": [
+        {
+         "offset": 1790,
+         "length": 9
+        }
+       ]
+      },
+      {
+       "id": "29",
+       "infons": {
+        "identifier": "D008801",
+        "type": "ChemicalEntity"
+       },
+       "text": "mexiletine",
+       "locations": [
+        {
+         "offset": 1804,
+         "length": 10
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "relations": [
+    {
+     "id": "R0",
+     "infons": {
+      "entity1": "D001919",
+      "entity2": "6331",
+      "type": "Association",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R1",
+     "infons": {
+      "entity1": "D001919",
+      "entity2": "p|SUB|V|1763|M",
+      "type": "Positive_Correlation",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R2",
+     "infons": {
+      "entity1": "D013610",
+      "entity2": "6331",
+      "type": "Association",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R3",
+     "infons": {
+      "entity1": "D013610",
+      "entity2": "p|SUB|V|1763|M",
+      "type": "Positive_Correlation",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R4",
+     "infons": {
+      "entity1": "6331",
+      "entity2": "D001145",
+      "type": "Association",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R5",
+     "infons": {
+      "entity1": "D001145",
+      "entity2": "D008801",
+      "type": "Negative_Correlation",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R6",
+     "infons": {
+      "entity1": "D001145",
+      "entity2": "D008012",
+      "type": "Negative_Correlation",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R7",
+     "infons": {
+      "entity1": "p|SUB|V|1763|M",
+      "entity2": "D001145",
+      "type": "Positive_Correlation",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R8",
+     "infons": {
+      "entity1": "p|SUB|V|1763|M",
+      "entity2": "D008133",
+      "type": "Positive_Correlation",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R9",
+     "infons": {
+      "entity1": "D008133",
+      "entity2": "6331",
+      "type": "Association",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R10",
+     "infons": {
+      "entity1": "D008133",
+      "entity2": "p|SUB|V||M",
+      "type": "Association",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R11",
+     "infons": {
+      "entity1": "D008133",
+      "entity2": "c|SUB|G|CODON1763|A",
+      "type": "Association",
+      "novel": "Novel"
+     }
+    },
+    {
+     "id": "R12",
+     "infons": {
+      "entity1": "D008133",
+      "entity2": "D008801",
+      "type": "Negative_Correlation",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R13",
+     "infons": {
+      "entity1": "D008133",
+      "entity2": "D008012",
+      "type": "Negative_Correlation",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R14",
+     "infons": {
+      "entity1": "D008801",
+      "entity2": "D017180",
+      "type": "Negative_Correlation",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R15",
+     "infons": {
+      "entity1": "D008012",
+      "entity2": "D017180",
+      "type": "Negative_Correlation",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R16",
+     "infons": {
+      "entity1": "D054537",
+      "entity2": "D008801",
+      "type": "Negative_Correlation",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R17",
+     "infons": {
+      "entity1": "D054537",
+      "entity2": "D008012",
+      "type": "Negative_Correlation",
+      "novel": "No"
+     }
+    }
+   ]
+  },
+  {
+   "id": "16046395",
+   "passages": [
+    {
+     "offset": 0,
+     "text": "Allelic expression imbalance of human mu opioid receptor (OPRM1) caused by variant A118G.",
+     "annotations": [
+      {
+       "id": "0",
+       "infons": {
+        "identifier": "9606",
+        "type": "OrganismTaxon"
+       },
+       "text": "human",
+       "locations": [
+        {
+         "offset": 32,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "1",
+       "infons": {
+        "identifier": "4988",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "mu opioid receptor",
+       "locations": [
+        {
+         "offset": 38,
+         "length": 18
+        }
+       ]
+      },
+      {
+       "id": "2",
+       "infons": {
+        "identifier": "4988",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "OPRM1",
+       "locations": [
+        {
+         "offset": 58,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "3",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "A118G",
+       "locations": [
+        {
+         "offset": 83,
+         "length": 5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "offset": 90,
+     "text": "As a primary target for opioid drugs and peptides, the mu opioid receptor (OPRM1) plays a key role in pain perception and addiction. Genetic variants of OPRM1 have been implicated in predisposition to drug addiction, in particular the single nucleotide polymorphism A118G, leading to an N40D substitution, with an allele frequency of 10-32%, and uncertain functions. We have measured allele-specific mRNA expression of OPRM1 in human autopsy brain tissues, using A118G as a marker. In 8 heterozygous samples measured, the A118 mRNA allele was 1.5-2.5-fold more abundant than the G118 allele. Transfection into Chinese hamster ovary cells of a cDNA representing only the coding region of OPRM1, carrying adenosine, guanosine, cytidine, and thymidine in position 118, resulted in 1.5-fold lower mRNA levels only for OPRM1-G118, and more than 10-fold lower OPRM1 protein levels, measured by Western blotting and receptor binding assay. After transfection and inhibition of transcription with actinomycin D, analysis of mRNA turnover failed to reveal differences in mRNA stability between A118 and G118 alleles, indicating a defect in transcription or mRNA maturation. These results indicate that OPRM1-G118 is a functional variant with deleterious effects on both mRNA and protein yield. Clarifying the functional relevance of polymorphisms associated with susceptibility to a complex disorder such as drug addiction provides a foundation for clinical association studies.",
+     "annotations": [
+      {
+       "id": "4",
+       "infons": {
+        "identifier": "4988",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "mu opioid receptor",
+       "locations": [
+        {
+         "offset": 145,
+         "length": 18
+        }
+       ]
+      },
+      {
+       "id": "5",
+       "infons": {
+        "identifier": "4988",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "OPRM1",
+       "locations": [
+        {
+         "offset": 165,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "6",
+       "infons": {
+        "identifier": "D010146",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "pain",
+       "locations": [
+        {
+         "offset": 192,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "7",
+       "infons": {
+        "identifier": "4988",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "OPRM1",
+       "locations": [
+        {
+         "offset": 243,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "8",
+       "infons": {
+        "identifier": "D019966",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "drug addiction",
+       "locations": [
+        {
+         "offset": 291,
+         "length": 14
+        }
+       ]
+      },
+      {
+       "id": "9",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "A118G",
+       "locations": [
+        {
+         "offset": 356,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "10",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "N40D",
+       "locations": [
+        {
+         "offset": 377,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "11",
+       "infons": {
+        "identifier": "4988",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "OPRM1",
+       "locations": [
+        {
+         "offset": 509,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "12",
+       "infons": {
+        "identifier": "9606",
+        "type": "OrganismTaxon"
+       },
+       "text": "human",
+       "locations": [
+        {
+         "offset": 518,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "13",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "A118G",
+       "locations": [
+        {
+         "offset": 553,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "14",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "A118",
+       "locations": [
+        {
+         "offset": 612,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "15",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "G118",
+       "locations": [
+        {
+         "offset": 669,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "16",
+       "infons": {
+        "identifier": "10029",
+        "type": "OrganismTaxon"
+       },
+       "text": "Chinese hamster",
+       "locations": [
+        {
+         "offset": 700,
+         "length": 15
+        }
+       ]
+      },
+      {
+       "id": "17",
+       "infons": {
+        "identifier": "100770962",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "OPRM1",
+       "locations": [
+        {
+         "offset": 777,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "18",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "adenosine, guanosine, cytidine, and thymidine in position 118",
+       "locations": [
+        {
+         "offset": 793,
+         "length": 61
+        }
+       ]
+      },
+      {
+       "id": "19",
+       "infons": {
+        "identifier": "100770962",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "OPRM1",
+       "locations": [
+        {
+         "offset": 904,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "20",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "G118",
+       "locations": [
+        {
+         "offset": 910,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "21",
+       "infons": {
+        "identifier": "100770962",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "OPRM1",
+       "locations": [
+        {
+         "offset": 944,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "22",
+       "infons": {
+        "identifier": "D003609",
+        "type": "ChemicalEntity"
+       },
+       "text": "actinomycin D",
+       "locations": [
+        {
+         "offset": 1079,
+         "length": 13
+        }
+       ]
+      },
+      {
+       "id": "23",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "A118",
+       "locations": [
+        {
+         "offset": 1175,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "24",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "G118",
+       "locations": [
+        {
+         "offset": 1184,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "25",
+       "infons": {
+        "identifier": "100770962",
+        "type": "GeneOrGeneProduct"
+       },
+       "text": "OPRM1",
+       "locations": [
+        {
+         "offset": 1283,
+         "length": 5
+        }
+       ]
+      },
+      {
+       "id": "26",
+       "infons": {
+        "identifier": "rs1799971",
+        "type": "SequenceVariant"
+       },
+       "text": "G118",
+       "locations": [
+        {
+         "offset": 1289,
+         "length": 4
+        }
+       ]
+      },
+      {
+       "id": "27",
+       "infons": {
+        "identifier": "D019966",
+        "type": "DiseaseOrPhenotypicFeature"
+       },
+       "text": "drug addiction",
+       "locations": [
+        {
+         "offset": 1489,
+         "length": 14
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "relations": [
+    {
+     "id": "R0",
+     "infons": {
+      "entity1": "4988",
+      "entity2": "D010146",
+      "type": "Association",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R1",
+     "infons": {
+      "entity1": "4988",
+      "entity2": "D019966",
+      "type": "Association",
+      "novel": "No"
+     }
+    },
+    {
+     "id": "R2",
+     "infons": {
+      "entity1": "D019966",
+      "entity2": "rs1799971",
+      "type": "Association",
+      "novel": "Novel"
+     }
+    }
+   ]
+  }
+ ]
+}

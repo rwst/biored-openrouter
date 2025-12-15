@@ -254,6 +254,24 @@ class TestOpenRouterClient:
         assert result.error_message is not None
 
     @patch('requests.post')
+    def test_400_error_shows_model_warning(self, mock_post, client):
+        """Verify 400 errors show helpful model name warning."""
+        mock_response = MagicMock()
+        mock_response.status_code = 400
+        mock_response.raise_for_status.side_effect = requests.HTTPError(
+            "400 Client Error: Bad Request",
+            response=mock_response
+        )
+        mock_post.return_value = mock_response
+
+        result = client.extract_relations("Sample text")
+
+        assert result.success == False
+        assert "Model" in result.error_message
+        assert "test-model" in result.error_message  # model name in error
+        assert "openrouter.ai/models" in result.error_message  # link to models
+
+    @patch('requests.post')
     def test_timeout_setting(self, mock_post, client):
         """Verify request has proper timeout set."""
         mock_response = MagicMock()

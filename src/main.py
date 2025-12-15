@@ -80,6 +80,9 @@ def main():
 
         if not extraction_result.success:
             print(f"  ERROR: {extraction_result.error_message}")
+            # Exit on 400 errors (invalid model) - no point continuing
+            if "400 Bad Request" in extraction_result.error_message:
+                sys.exit(1)
             continue
 
         if args.verbose:

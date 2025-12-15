@@ -99,6 +99,25 @@ class OpenRouterClient:
 
             return self._parse_response(content)
 
+        except requests.HTTPError as e:
+            if e.response is not None and e.response.status_code == 400:
+                return ExtractionResult(
+                    success=False,
+                    relations=[],
+                    raw_response="",
+                    error_message=(
+                        f"400 Bad Request: Model '{self.model_name}' may not exist or is not available. "
+                        f"Check available models at https://openrouter.ai/models"
+                    )
+                )
+            else:
+                return ExtractionResult(
+                    success=False,
+                    relations=[],
+                    raw_response="",
+                    error_message=str(e)
+                )
+
         except requests.RequestException as e:
             return ExtractionResult(
                 success=False,

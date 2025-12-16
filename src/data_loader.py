@@ -29,12 +29,21 @@ class Relation:
 
 
 @dataclass
+class SynonymSet:
+    """Represents all text variants for an entity identifier."""
+    identifier: str
+    entity_type: str
+    texts: List[str]  # All observed text variants
+
+
+@dataclass
 class Document:
     """Represents a BioRED document with entities and relations."""
     doc_id: str              # PubMed ID
     full_text: str           # Concatenated passage texts
     entities: List[Entity]
     relations: List[Relation]
+    synonym_sets: Dict[str, SynonymSet]  # identifier -> SynonymSet mapping
 
     def has_relations(self) -> bool:
         """Check if document has annotated relations."""
@@ -85,8 +94,25 @@ class BioREDDataLoader:
 
         full_text = ' '.join(full_text_parts)
 
-        # Build entity lookup by identifier
-        entity_lookup = {entity.identifier: entity for entity in all_entities}
+        # Build synonym sets - collect ALL text variants per identifier
+        synonym_dict = {}
+        for entity in all_entities:
+            if entity.identifier not in synonym_dict:
+                synonym_dict[entity.identifier] = SynonymSet(
+                    identifier=entity.identifier,
+                    entity_type=entity.entity_type,
+                    texts=[entity.text]
+                )
+            else:
+                # Add new text variant if not already present
+                if entity.text not in synonym_dict[entity.identifier].texts:
+                    synonym_dict[entity.identifier].texts.append(entity.text)
+
+        # Keep entity_lookup for backwards compatibility, using FIRST occurrence
+        entity_lookup = {}
+        for entity in all_entities:
+            if entity.identifier not in entity_lookup:
+                entity_lookup[entity.identifier] = entity
 
         # Parse relations
         relations = []
@@ -98,7 +124,8 @@ class BioREDDataLoader:
             doc_id=doc_id,
             full_text=full_text,
             entities=all_entities,
-            relations=relations
+            relations=relations,
+            synonym_sets=synonym_dict
         )
 
     def _parse_entity(self, annotation: dict) -> Entity:

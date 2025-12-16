@@ -6,7 +6,9 @@ A Python-based evaluation system for biomedical relation extraction using the Bi
 
 - **Data Loading**: Parse BioRED-format JSON files with entities and relations
 - **LLM Integration**: Extract relations using OpenRouter API (supports any model)
-- **Evaluation**: Text-based matching with precision, recall, and F-score metrics
+- **Synonym-Aware Evaluation**: Intelligent matching that recognizes entity synonyms (e.g., "LQTS" ↔ "long QT syndrome")
+- **Fuzzy Matching**: Normalization handles formatting variations (e.g., "Na(v)1.5" ↔ "Nav15")
+- **Match Type Tracking**: Distinguishes exact, synonym, and fuzzy matches
 - **Persistence**: CSV database with automatic update/overwrite logic
 - **Aggregate Statistics**: Micro-averaged metrics across multiple documents
 
@@ -117,15 +119,28 @@ biored-openrouter/
 
 ## Evaluation Methodology
 
-The system follows the BioRED paper evaluation methodology:
+The system follows the BioRED paper evaluation methodology with enhanced synonym-aware matching:
 
 - **Per-Relation Evaluation**: Each relation is evaluated independently
-- **Text-Based Matching**: Entity pairs compared using normalized text (case-insensitive)
+- **Synonym-Aware Matching**: Leverages BioRED entity identifiers to recognize synonyms
+  - **Exact Match**: Case-insensitive, whitespace-normalized text match
+  - **Synonym Match**: Different texts with the same database identifier (e.g., "SCN5A" and "Na(v)1.5" both map to gene 6331)
+  - **Fuzzy Match**: Aggressive normalization removes parentheses, hyphens, dots (e.g., "IL-6" matches "IL6")
 - **Symmetric Matching**: Entity order doesn't matter (A-B = B-A)
+- **Duplicate Handling**: Identical relations are deduplicated automatically
 - **Metrics**:
   - Precision = TP / (TP + FP)
   - Recall = TP / (TP + FN)
   - F-score = 2 × (Precision × Recall) / (Precision + Recall)
+
+### Synonym Matching Benefits
+
+The synonym-aware matching significantly improves evaluation accuracy by recognizing that:
+- "LQTS" and "long QT syndrome" refer to the same disease (MESH:D008133)
+- "SCN5A" and "Na(v)1.5" refer to the same gene (6331)
+- Formatting variations like "Na(v)1.5" vs "Nav15" represent the same entity
+
+This allows the system to correctly credit LLMs that use different but equivalent terminology.
 
 ## CSV Output Format
 
@@ -136,8 +151,8 @@ The system outputs results to a CSV file with the following columns:
 | model_name | OpenRouter model identifier |
 | doc_id | PubMed document ID |
 | timestamp | ISO 8601 timestamp |
-| total_ground_truth | Number of ground truth relations |
-| total_extracted | Number of extracted relations |
+| total_ground_truth | Number of ground truth relations (deduplicated) |
+| total_extracted | Number of extracted relations (deduplicated) |
 | true_positives | Correctly extracted relations |
 | false_positives | Incorrectly extracted relations |
 | false_negatives | Missed relations |
@@ -147,6 +162,8 @@ The system outputs results to a CSV file with the following columns:
 | matched_relations | JSON list of matched relations |
 | missed_relations | JSON list of missed relations |
 | spurious_relations | JSON list of false positive relations |
+| synonym_matches | Count of relations matched via synonyms |
+| fuzzy_matches | Count of relations matched via fuzzy normalization |
 
 ## Running Tests
 
@@ -173,6 +190,8 @@ python test_integration.py
 
 ## Example Output
 
+### Basic Output
+
 ```
 Loading documents from sample.json...
 Found 2 documents with annotated relations
@@ -198,6 +217,31 @@ Micro-Recall: 15.15%
 Micro-F1: 25.00%
 
 Results saved to: results.csv
+```
+
+### Verbose Output (with Synonym Matching)
+
+```bash
+python -m src.main -i sample.json -m "anthropic/claude-3-sonnet" -v
+```
+
+```
+Loading documents from sample.json...
+Found 2 documents with annotated relations
+
+[1/2] Processing document 15485686...
+  Sending to anthropic/claude-3-sonnet...
+  Document length: 2456 characters
+  Synonym sets: 18
+  Extracted 3 relations
+  P=66.67% R=11.11% F1=19.05%
+  TP=2 FP=1 FN=16
+  Synonym matches: 1
+    GT: <SCN5A, arrhythmias>
+    EX: <Na(v)1.5, arrhythmias>
+  Fuzzy matches: 0
+
+...
 ```
 
 ## Supported Models

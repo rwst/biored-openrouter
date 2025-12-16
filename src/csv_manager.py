@@ -28,7 +28,9 @@ class CSVManager:
         "f_score",
         "matched_relations",
         "missed_relations",
-        "spurious_relations"
+        "spurious_relations",
+        "synonym_matches",
+        "fuzzy_matches"
     ]
 
     def __init__(self, csv_path: Optional[Path] = None):
@@ -88,6 +90,10 @@ class CSVManager:
         Returns:
             Dictionary with CSV row data
         """
+        # Count synonym and fuzzy matches
+        synonym_count = len([m for m in result.match_details if m.match_type == "synonym"])
+        fuzzy_count = len([m for m in result.match_details if m.match_type == "fuzzy"])
+
         return {
             "model_name": result.model_name,
             "doc_id": result.doc_id,
@@ -102,7 +108,9 @@ class CSVManager:
             "f_score": f"{result.f_score:.4f}",
             "matched_relations": json.dumps(result.matched_relations),
             "missed_relations": json.dumps(result.missed_relations),
-            "spurious_relations": json.dumps(result.spurious_relations)
+            "spurious_relations": json.dumps(result.spurious_relations),
+            "synonym_matches": synonym_count,
+            "fuzzy_matches": fuzzy_count
         }
 
     def _read_all(self) -> list:

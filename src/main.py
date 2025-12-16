@@ -45,7 +45,6 @@ def main():
     try:
         loader = BioREDDataLoader()
         client = OpenRouterClient(args.model)
-        comparator = RelationComparator()
         csv_manager = CSVManager(Path(args.output))
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)
@@ -75,6 +74,7 @@ def main():
         if args.verbose:
             print(f"  Sending to {args.model}...")
             print(f"  Document length: {len(doc.full_text)} characters")
+            print(f"  Synonym sets: {len(doc.synonym_sets)}")
 
         extraction_result = client.extract_relations(doc.full_text)
 
@@ -88,7 +88,8 @@ def main():
         if args.verbose:
             print(f"  Extracted {len(extraction_result.relations)} relations")
 
-        # Compare results
+        # Compare results with synonym awareness
+        comparator = RelationComparator(doc.synonym_sets)
         comparison = comparator.compare(
             doc_id=doc.doc_id,
             model_name=args.model,
@@ -102,6 +103,23 @@ def main():
         # Report
         print(f"  P={comparison.precision:.2%} R={comparison.recall:.2%} F1={comparison.f_score:.2%}")
         print(f"  TP={comparison.true_positives} FP={comparison.false_positives} FN={comparison.false_negatives}")
+
+        # Show synonym match details
+        if args.verbose and comparison.match_details:
+            synonym_matches = [m for m in comparison.match_details if m.match_type == "synonym"]
+            fuzzy_matches = [m for m in comparison.match_details if m.match_type == "fuzzy"]
+
+            if synonym_matches:
+                print(f"  Synonym matches: {len(synonym_matches)}")
+                for match in synonym_matches[:3]:
+                    print(f"    GT: <{match.ground_truth_e1}, {match.ground_truth_e2}>")
+                    print(f"    EX: <{match.extracted_e1}, {match.extracted_e2}>")
+
+            if fuzzy_matches:
+                print(f"  Fuzzy matches: {len(fuzzy_matches)}")
+                for match in fuzzy_matches[:3]:
+                    print(f"    GT: <{match.ground_truth_e1}, {match.ground_truth_e2}>")
+                    print(f"    EX: <{match.extracted_e1}, {match.extracted_e2}>")
 
         if args.verbose and comparison.true_positives > 0:
             print(f"  Matched relations: {len(comparison.matched_relations)}")
